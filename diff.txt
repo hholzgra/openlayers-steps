@@ -1,0 +1,54 @@
+--- step-5/index.html	2010-08-24 13:41:05.000000000 +0200
++++ step-6/index.html	2010-08-24 13:41:06.000000000 +0200
+@@ -1,47 +1,49 @@
+ <html>
+   <head>
+-    <title>Step 5: moving the attribution text</title>
++    <title>Step 6: adding an alternative map layer</title>
+     <script src="/openlayers/current/OpenLayers.js"></script>
+     <script src="/openlayers/OpenStreetMap.js"></script>
+     <link rel="stylesheet" href="/openlayers/current/theme/default/style.css" type="text/css" />
+ 
+     <style type="text/css">
+       .olControlAttribution {
+         bottom: 5px;
+         right:  220px;
+         background-color:white; 
+         padding:4px; 
+         opacity: 0.60;
+       }
+     </style>
+ 
+     <script>
+       function init() {
+         lat       = 52.025;
+         lon       = 8.515;
+         zoom      = 15;
+ 
+         projLonLat   = new OpenLayers.Projection("EPSG:4326");   // WGS 1984
+         projMercator = new OpenLayers.Projection("EPSG:900913"); // Spherical Mercator
+ 
+         overviewMap = new OpenLayers.Control.OverviewMap();
+ 
+         map = new OpenLayers.Map("demoMap", 
+                                  { theme:    null,
+                                    controls: [ new OpenLayers.Control.Navigation(),    // direct panning via mouse drag
++                                               new OpenLayers.Control.LayerSwitcher(), // select map and features to display
+                                                new OpenLayers.Control.Attribution(),   // attribution text
+                                                new OpenLayers.Control.PanZoomBar(),    // larger navigation control
+                                                overviewMap                             // overview map
+                                              ]
+                                  } 
+                                 );
+-        map.addLayer(new OpenLayers.Layer.OSM.Mapnik());
++        map.addLayer(new OpenLayers.Layer.OSM.Mapnik("Mapnik"));
++        map.addLayer(new OpenLayers.Layer.OSM.Osmarender("Osmarender"));
+         map.setCenter(new OpenLayers.LonLat(lon, lat).transform(projLonLat,projMercator), zoom);
+         overviewMap.maximizeControl();
+       }
+     </script>
+   </head>
+   <body onload="init();">
+     <div id="demoMap"></div>
+   </body>
+ </html>

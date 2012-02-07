@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Step 1: A Simple Map</title>
+    <script src="../OpenLayers.js"></script>
+    <script src="../OpenStreetMap.js"></script>
+    <script>
+      function init() {
+        map = new OpenLayers.Map("demoMap");
+        map.addLayer(new OpenLayers.Layer.OSM.Mapnik());
+        map.zoomToMaxExtent();
+      }
+    </script>
+  </head>
+  <body onload="init();">
+    <div id="demoMap"></div>
+  </body>
+</html>

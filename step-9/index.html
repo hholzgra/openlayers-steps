@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <title>Step 9: Google map material</title>
+    <script src="../OpenLayers.js"></script>
+    <script src="../OpenStreetMap.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <link rel="stylesheet" href="../theme/default/style.css" type="text/css" />
+
+    <style type="text/css">
+      .olControlAttribution {
+        bottom: 0px;
+        right:  220px;
+        background-color:white; 
+        padding: 4px; 
+        opacity: 0.60;
+      }
+      .olControlScaleLine {
+        bottom: 0px;
+        left: 0px;
+        background-color:white; 
+        padding: 4px; 
+        opacity: 0.60;
+      }
+      .olControlPermalink {
+        top: 0px;
+        right: 0px;
+        height: 1.2em;
+        background-color:white;
+        padding: 4px;
+        opacity: 0.60;
+    }
+    </style>
+
+    <script>
+      function init() {
+        lat       = 52.025;
+        lon       = 8.515;
+        zoom      = 15;
+
+        projLonLat   = new OpenLayers.Projection("EPSG:4326");   // WGS 1984
+        projMercator = new OpenLayers.Projection("EPSG:900913"); // Spherical Mercator
+
+        extentMax = 20037508.34;
+
+        overviewMap = new OpenLayers.Control.OverviewMap();
+
+        scale = new OpenLayers.Control.ScaleLine();
+        scale.geodesic = true; // get the scale projection right, at least on small zoom levels
+
+        map = new OpenLayers.Map("demoMap", 
+                                 { theme:    null,
+                                   controls: [ new OpenLayers.Control.Navigation(),    // direct panning via mouse drag
+                                               new OpenLayers.Control.LayerSwitcher(), // select map and features to display
+                                               new OpenLayers.Control.Attribution(),   // attribution text
+                                               new OpenLayers.Control.PanZoomBar(),    // larger navigation control
+                                               new OpenLayers.Control.Permalink(),     // bookmarkable map links
+                                               scale,                                  // scale ruler
+                                               overviewMap                             // overview map
+                                             ],
+	                           maxExtent: new OpenLayers.Bounds(-extentMax, -extentMax, extentMax, extentMax)
+                                 } 
+                                );
+        map.addLayer(new OpenLayers.Layer.OSM.Mapnik("Mapnik"));
+        map.addLayer(new OpenLayers.Layer.OSM.Osmarender("Osmarender"));
+        map.addLayer(new OpenLayers.Layer.Google("Google (Map)",
+            { 'type': google.maps.MapTypeId.ROADMAP, 'sphericalMercator': true } ));
+        map.addLayer(new OpenLayers.Layer.Google("Google (Hybrid)",
+            { 'type': google.maps.MapTypeId.HYBRID, 'sphericalMercator': true } ));
+        map.addLayer(new OpenLayers.Layer.Google("Google (Satellite)",
+            { 'type': google.maps.MapTypeId.SATELLITE, 'sphericalMercator': true } ));
+        map.setCenter(new OpenLayers.LonLat(lon, lat).transform(projLonLat,projMercator), zoom);
+        overviewMap.maximizeControl();
+      }
+    </script>
+  </head>
+  <body onload="init();">
+    <div id="demoMap"></div>
+  </body>
+</html>

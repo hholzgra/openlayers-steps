@@ -1,0 +1,40 @@
+<?xml version='1.0' standalone='no'?>
+<osm version='0.6' generator='xapi: OSM Extended API 2.0' xmlns:xapi='http://www.informationfreeway.org/xapi/0.6' xapi:uri='/api/0.6/way[name=Goldbach][bbox=8.484444,52.016774,8.545556,52.033225]' xapi:planetDate='20100815' xapi:copyright='2010 OpenStreetMap contributors' xapi:license='Creative commons CC-BY-SA 2.0' xapi:bugs='For assistance or to report bugs contact 80n80n@gmail.com' xapi:instance='zappyOsm'>
+  <node id='43580847' lat='52.0244022' lon='8.5252048' user='westfa' timestamp='2009-11-24T13:46:34Z' uid='111106' version='3' changeset='3204489'>
+  </node>
+  <node id='43580812' lat='52.0249819' lon='8.5266871' user='westfa' timestamp='2010-01-16T16:32:50Z' uid='111106' version='2' changeset='3633046'>
+  </node>
+  <node id='43580854' lat='52.0238423' lon='8.5238587' user='languitar' timestamp='2010-03-28T11:51:29Z' uid='100442' version='5' changeset='4255625'>
+    <tag k='bicycle' v='yes'/>
+    <tag k='crossing' v='traffic_signals'/>
+    <tag k='highway' v='traffic_signals'/>
+    <tag k='supervised' v='yes'/>
+  </node>
+  <node id='43580843' lat='52.0253473' lon='8.5277236' user='Hartmut Holzgraefe' xapi:users='Hartmut Holzgraefe' timestamp='2009-02-22T13:25:06Z' uid='12448' version='3' changeset='607794'>
+  </node>
+  <way id='5735530' user='Hartmut Holzgraefe' uid='12448' timestamp='2010-01-13T21:33:53Z' version='5' changeset='3613345'>
+    <nd ref='43580854'/>
+    <nd ref='43580847'/>
+    <tag k='highway' v='residential'/>
+    <tag k='maxspeed' v='30'/>
+    <tag k='name' v='Goldbach'/>
+    <tag k='oneway' v='yes'/>
+  </way>
+  <way id='27206524' user='Hartmut Holzgraefe' uid='12448' timestamp='2010-01-13T21:33:50Z' version='3' changeset='3613345'>
+    <nd ref='43580847'/>
+    <nd ref='43580812'/>
+    <tag k='highway' v='residential'/>
+    <tag k='maxspeed' v='30'/>
+    <tag k='name' v='Goldbach'/>
+  </way>
+  <way id='48165037' user='Hartmut Holzgraefe' uid='12448' timestamp='2010-01-13T21:33:54Z' version='2' changeset='3613345'>
+    <nd ref='43580812'/>
+    <nd ref='43580843'/>
+    <tag k='bicycle' v='designated'/>
+    <tag k='highway' v='residential'/>
+    <tag k='maxspeed' v='30'/>
+    <tag k='motor_vehicle' v='yes'/>
+    <tag k='name' v='Goldbach'/>
+    <tag k='note' v='Fahrradstraße'/>
+  </way>
+</osm>

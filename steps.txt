@@ -1,0 +1,13 @@
+Step  1: a simple map
+Step  2: setting initial position
+Step  3: adding map controls
+Step  4: unfolding the overview map by default
+Step  5: moving the attribution text
+Step  6: adding a scale ruler
+Step  7: bookmarkable map links
+Step  8: adding an alternative map layer
+Step  9: Google map material
+Step 10: add a marker
+Step 11: marker icons
+Step 12: marker popups
+Step 13: dynamic marker overlay
